@@ -18,10 +18,15 @@ public class UserRepositoryImpl extends Repository<User,String> implements Abstr
         return instance;
     }
 
+
     @Override
     public void restore() {
-        User u1=new User("A","111111",DepartmentRepositoryImpl.getInstance().findById(1),RoleRepositoryImpl.getInstance().findById(1));
-        User u2=new User("B","222222",DepartmentRepositoryImpl.getInstance().findById(2),RoleRepositoryImpl.getInstance().findById(2));
+        User u1=new User("A","111111",DepartmentRepositoryImpl.getInstance().findById(1),RoleRepositoryImpl.getInstance().findById(1),
+                List.of(PermissionRepositoryImpl.getInstance().findById(1),PermissionRepositoryImpl.getInstance().findById(3),
+                        PermissionRepositoryImpl.getInstance().findById(4),PermissionRepositoryImpl.getInstance().findById(5),
+                        PermissionRepositoryImpl.getInstance().findById(6),PermissionRepositoryImpl.getInstance().findById(8)));
+        User u2=new User("B","222222",DepartmentRepositoryImpl.getInstance().findById(2),RoleRepositoryImpl.getInstance().findById(2),
+                List.of(PermissionRepositoryImpl.getInstance().findById(7)));
         User u3=new User("C","333333",DepartmentRepositoryImpl.getInstance().findById(3),RoleRepositoryImpl.getInstance().findById(1));
         User u4=new User("D","111111",DepartmentRepositoryImpl.getInstance().findById(1),RoleRepositoryImpl.getInstance().findById(1));
         List<User> list=List.of(u1,u2,u3,u4);

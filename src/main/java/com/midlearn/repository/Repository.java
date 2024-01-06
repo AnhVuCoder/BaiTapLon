@@ -5,15 +5,15 @@ import com.midlearn.entity.CommonEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Repository<T extends CommonEntity<ID>, ID> {
-    private List<T> list=new ArrayList<>();
-    public T findById(ID id){
+public class Repository <T extends CommonEntity<ID>, ID>  {
+    private List<T> list=new ArrayList<T>();
+    public <S extends T> T findById(ID id){
         return list.stream().filter(e->e.getId().equals(id)).findFirst().orElse(null);
     }
-    public List<T> findAll(){
+    public <S extends T> List<T> findAll(){
         return list;
     }
-    public void save(T t){
+    public <S extends T> void save(T t){
         T existingT=this.findById(t.getId());
         if(existingT!=null){
             list.remove(existingT);

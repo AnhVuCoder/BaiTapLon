@@ -1,22 +1,13 @@
 package com.midlearn.entity;
 
+import com.midlearn.repository.CriteriaRepositoryImpl;
+import com.midlearn.utils.Utils;
+
 public class CommonCriteriaAndStandard extends CommonEntity<String> {
-    String name;
-    private String content;
-
-    public String getName() {
-        return name;
+    protected String content;
+    public void setContent() {
+        System.out.println("Content: ");
+        this.content = Utils.SC.nextLine();
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 }

@@ -17,15 +17,16 @@ public class PermissionRepositoryImpl extends Repository<Permission,Integer> imp
 
     @Override
     public void restore() {
-        Permission p1=new Permission("Add accreditation");
-        Permission p2=new Permission("Add standard");
-        Permission p3=new Permission("Add criteria");
-        Permission p4=new Permission("Authorize permission");
-        Permission p5=new Permission("Add evidence");
-        Permission p6=new Permission("Update evidence");
-        Permission p7=new Permission("Delete evidence");
-        Permission p8=new Permission("Assign evidence for criteria");
-        List<Permission> list= List.of(p1,p2,p3,p4,p5,p6,p7,p8);
+        Permission p1=new Permission("Create accreditation");
+        Permission p2=new Permission("Create content for criteria");
+        Permission p3=new Permission("Import evidence");
+        Permission p4=new Permission("Add evidence for criteria");
+        Permission p5=new Permission("Delete evidence for criteria");
+        Permission p6=new Permission("Update evidence for criteria");
+        Permission p7=new Permission("Authorize permission");
+        Permission p8=new Permission("Create evidence");
+        Permission p9=new Permission("Promulgate evidence");
+        List<Permission> list= List.of(p1,p2,p3,p4,p5,p6,p7,p8,p9);
         PermissionRepositoryImpl.getInstance().findAll().addAll(list);
     }
 }
